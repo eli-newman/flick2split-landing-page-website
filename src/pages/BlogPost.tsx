@@ -8,6 +8,7 @@ import SeoHead from '@/components/SeoHead';
 import OptimizedImage from '@/components/OptimizedImage';
 import RelatedPosts from '@/components/RelatedPosts';
 import BreadcrumbSchema from '@/components/BreadcrumbSchema';
+import ArticleSchema from '@/components/ArticleSchema';
 
 // This is a dynamic import function to load blog content
 const importBlogPost = async (slug: string) => {
@@ -100,37 +101,15 @@ const BlogPost = () => {
         keywords={metadata.keywords || []}
       />
       
-      <Helmet>
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Article",
-              "headline": "${metadata.title}",
-              "image": "${metadata.imageUrl}",
-              "author": {
-                "@type": "Person",
-                "name": "${metadata.author.name}"
-              },
-              "publisher": {
-                "@type": "Organization",
-                "name": "FLICK2SPLIT",
-                "logo": {
-                  "@type": "ImageObject",
-                  "url": "https://flick2split.com/logo.png"
-                }
-              },
-              "datePublished": "${metadata.date}",
-              "dateModified": "${metadata.date}",
-              "description": "${metadata.excerpt}",
-              "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "${canonicalUrl}"
-              }
-            }
-          `}
-        </script>
-      </Helmet>
+      <ArticleSchema
+        headline={metadata.title}
+        description={metadata.excerpt}
+        authorName={metadata.author.name}
+        datePublished={metadata.date}
+        image={metadata.imageUrl}
+        url={canonicalUrl}
+        keywords={metadata.keywords}
+      />
       
       <BreadcrumbSchema
         items={[
@@ -184,11 +163,14 @@ const BlogPost = () => {
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto glass-card p-8 md:p-12">
             <div className="flex items-center mb-8 pb-8 border-b border-white/10">
-              <img 
-                src={metadata.author.avatar} 
-                alt={`Photo of ${metadata.author.name}`}
+              <img
+                src={metadata.author.avatar}
+                alt={`Photo of ${metadata.author.name}, author at FLICK2SPLIT`}
+                width={48}
+                height={48}
+                loading="lazy"
+                decoding="async"
                 className="w-12 h-12 rounded-full mr-4 object-cover"
-                loading="eager"
               />
               <div>
                 <h3 className="text-flick-white font-medium">{metadata.author.name}</h3>
@@ -196,9 +178,13 @@ const BlogPost = () => {
               </div>
             </div>
             
-            <OptimizedImage 
-              src={metadata.imageUrl} 
-              alt={metadata.title}
+            <OptimizedImage
+              src={metadata.imageUrl}
+              alt={`${metadata.title} - FLICK2SPLIT blog article`}
+              width={768}
+              height={432}
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto rounded-xl mb-8"
             />
             
@@ -223,7 +209,7 @@ const BlogPost = () => {
             )}
             
             {/* Related Posts */}
-            <RelatedPosts currentSlug={slug || ''} />
+            <RelatedPosts currentSlug={slug || ''} category={metadata.category} />
           </div>
         </div>
       </section>

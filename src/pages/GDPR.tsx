@@ -1,9 +1,16 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SeoHead from '@/components/SeoHead';
 
 const GDPR = () => {
   return (
     <div className="min-h-screen bg-flick-blue">
+      <SeoHead
+        title="GDPR Compliance | FLICK2SPLIT"
+        description="Learn how FLICK2SPLIT complies with the General Data Protection Regulation (GDPR) and protects your personal data rights."
+        canonicalUrl="https://flick2split.com/gdpr"
+        keywords={['GDPR compliance', 'data protection', 'EU privacy regulation', 'personal data rights']}
+      />
       <Navbar />
       
       <section className="pt-32 pb-12 px-4 hero-gradient">

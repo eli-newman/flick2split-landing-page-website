@@ -14,9 +14,13 @@ const BlogCard = ({ title, excerpt, date, imageUrl, category, slug }: BlogCardPr
     <Link to={`/blog/${slug}`} className="block h-full">
       <div className="glass-card overflow-hidden h-full flex flex-col transition-transform hover:scale-[1.02]">
         <div className="relative h-48 overflow-hidden">
-          <img 
-            src={imageUrl} 
-            alt={title}
+          <img
+            src={imageUrl}
+            alt={`${title} - FLICK2SPLIT blog`}
+            width={400}
+            height={192}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover transition-transform hover:scale-105"
           />
           <div className="absolute top-3 left-3">

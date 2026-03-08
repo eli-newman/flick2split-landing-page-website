@@ -44,9 +44,13 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <img 
-            src="/images/homepg.png" 
-            alt="FLICK2SPLIT receipt example" 
+          <img
+            src="/images/homepg.png"
+            alt="FLICK2SPLIT app showing a scanned receipt being split between friends"
+            width={512}
+            height={640}
+            fetchPriority="high"
+            decoding="sync"
             className={`md:absolute md:right-20 md:top-0 max-w-lg w-full h-auto transition-all duration-700 delay-300 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
           />
         </div>

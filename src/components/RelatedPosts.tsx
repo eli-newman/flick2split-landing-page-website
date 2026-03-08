@@ -1,32 +1,32 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useMemo } from 'react';
+import { allBlogPosts } from '@/data/blogPosts';
 
 type RelatedPostProps = {
   currentSlug: string;
+  category?: string;
 };
 
-// This could be expanded to dynamically fetch related posts based on tags
-const RelatedPosts = ({ currentSlug }: RelatedPostProps) => {
-  const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
-  
-  useEffect(() => {
-    // Sample posts - in a real app you might fetch these from an API or content system
-    const allPosts = [
-      {
-        title: "How FLICK2SPLIT Saved My Friendship",
-        slug: "saved-my-friendship",
-        excerpt: "A real story from one of our users about how our app helped preserve a friendship."
-      },
-      {
-        title: "Tips for Fair Bill Splitting",
-        slug: "tips-for-fair-bill-splitting",
-        excerpt: "Learn the best practices for splitting bills fairly among friends."
-      }
-    ];
-    
-    // Filter out current post
-    setRelatedPosts(allPosts.filter(post => post.slug !== currentSlug));
-  }, [currentSlug]);
+const MAX_RELATED_POSTS = 3;
+
+const RelatedPosts = ({ currentSlug, category }: RelatedPostProps) => {
+  const relatedPosts = useMemo(() => {
+    // Filter out the current post
+    const otherPosts = allBlogPosts.filter(post => post.slug !== currentSlug);
+
+    if (otherPosts.length === 0) return [];
+
+    // Split into same-category and different-category posts
+    const sameCategoryPosts = category
+      ? otherPosts.filter(post => post.category === category)
+      : [];
+    const differentCategoryPosts = category
+      ? otherPosts.filter(post => post.category !== category)
+      : otherPosts;
+
+    // Prioritize same-category posts, then fill with others
+    return [...sameCategoryPosts, ...differentCategoryPosts].slice(0, MAX_RELATED_POSTS);
+  }, [currentSlug, category]);
 
   if (relatedPosts.length === 0) return null;
 
@@ -35,11 +35,14 @@ const RelatedPosts = ({ currentSlug }: RelatedPostProps) => {
       <h3 className="text-xl font-bold text-flick-white mb-6">Related Articles</h3>
       <div className="grid gap-6 md:grid-cols-2">
         {relatedPosts.map(post => (
-          <Link 
+          <Link
             key={post.slug}
             to={`/blog/${post.slug}`}
             className="glass-card p-6 transition-all hover:shadow-lg"
           >
+            <span className="inline-block bg-flick-yellow/20 text-flick-yellow px-2 py-0.5 rounded-full text-xs font-medium mb-2">
+              {post.category}
+            </span>
             <h4 className="text-lg font-semibold text-flick-white mb-2">{post.title}</h4>
             <p className="text-white/70">{post.excerpt}</p>
           </Link>
@@ -49,4 +52,4 @@ const RelatedPosts = ({ currentSlug }: RelatedPostProps) => {
   );
 };
 
-export default RelatedPosts; 
+export default RelatedPosts;

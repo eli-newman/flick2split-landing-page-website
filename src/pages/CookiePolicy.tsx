@@ -1,9 +1,16 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SeoHead from '@/components/SeoHead';
 
 const CookiePolicy = () => {
   return (
     <div className="min-h-screen bg-flick-blue">
+      <SeoHead
+        title="Cookie Policy | FLICK2SPLIT"
+        description="Learn about how FLICK2SPLIT uses cookies and similar technologies to improve your experience on our bill splitting platform."
+        canonicalUrl="https://flick2split.com/cookie-policy"
+        keywords={['cookie policy', 'cookies', 'tracking technologies', 'website cookies']}
+      />
       <Navbar />
       
       <section className="pt-32 pb-12 px-4 hero-gradient">

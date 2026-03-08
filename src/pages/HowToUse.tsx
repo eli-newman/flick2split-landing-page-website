@@ -1,8 +1,11 @@
 
 import { useState, useEffect } from 'react';
 import { Camera, Users, CreditCard, Share2, BarChart, Settings, ArrowRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SeoHead from '@/components/SeoHead';
+import BreadcrumbSchema from '@/components/BreadcrumbSchema';
 
 const HowToUse = () => {
   const [isIntersecting, setIsIntersecting] = useState<{ [key: string]: boolean }>({
@@ -39,6 +42,37 @@ const HowToUse = () => {
 
   return (
     <div className="min-h-screen bg-flick-blue">
+      <SeoHead
+        title="How to Use FLICK2SPLIT - Step-by-Step Guide"
+        description="Learn how to use FLICK2SPLIT to split bills with friends. Follow our step-by-step guide to snap a photo, assign items, and share the split in seconds."
+        canonicalUrl="https://flick2split.com/how-to-use"
+        keywords={['how to split a bill', 'bill splitting guide', 'receipt scanner tutorial', 'split expenses step by step']}
+      />
+
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://flick2split.com/' },
+          { name: 'How to Use', url: 'https://flick2split.com/how-to-use' },
+        ]}
+      />
+
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer,
+              },
+            })),
+          })}
+        </script>
+      </Helmet>
+
       <Navbar />
       
       {/* Header */}

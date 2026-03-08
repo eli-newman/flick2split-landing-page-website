@@ -12,5 +12,24 @@ Disallow: /*.json$
 Disallow: /*.txt$
 Allow: /sitemap.xml
 
+# AI Crawler Rules
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 # Sitemap location
 Sitemap: https://flick2split.com/sitemap.xml

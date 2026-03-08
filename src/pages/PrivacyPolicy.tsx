@@ -1,9 +1,16 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SeoHead from '@/components/SeoHead';
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-flick-blue">
+      <SeoHead
+        title="Privacy Policy | FLICK2SPLIT"
+        description="Read FLICK2SPLIT's privacy policy to understand how we collect, use, and protect your personal data when you use our bill splitting app."
+        canonicalUrl="https://flick2split.com/privacy-policy"
+        keywords={['privacy policy', 'data protection', 'user privacy', 'personal data']}
+      />
       <Navbar />
       
       <section className="pt-32 pb-12 px-4 hero-gradient">

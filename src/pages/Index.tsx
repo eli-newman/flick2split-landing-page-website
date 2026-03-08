@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import HeroSection from '@/components/HeroSection';
 import FeatureCard from '@/components/FeatureCard';
 import BlogCard from '@/components/BlogCard';
+import SeoHead from '@/components/SeoHead';
 import { useToast } from "@/components/ui/use-toast";
 
 const Index = () => {
@@ -45,6 +46,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-flick-blue overflow-x-hidden">
+      <SeoHead
+        title="FLICK2SPLIT - The Best Bill Splitting App for Friends"
+        description="Split bills easily with friends using FLICK2SPLIT. Snap a photo of your receipt, and our AI-powered scanner handles the rest. Fair, fast, and hassle-free expense splitting."
+        canonicalUrl="https://flick2split.com/"
+        keywords={['bill splitting app', 'split bill with friends', 'AI receipt scanning', 'restaurant bill splitter', 'expense sharing app', 'group expense calculator']}
+      />
       <Navbar />
       
       <HeroSection />

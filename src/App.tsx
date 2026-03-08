@@ -60,9 +60,9 @@ const App = () => (
                 "url": "https://flick2split.com",
                 "logo": "https://flick2split.com/logo.png",
                 "sameAs": [
-                  "https://twitter.com/flick2split",
-                  "https://facebook.com/flick2split",
-                  "https://instagram.com/flick2split"
+                  "https://x.com/flick2split",
+                  "https://www.instagram.com/flick2split",
+                  "https://www.tiktok.com/@flick2split"
                 ],
                 "contactPoint": {
                   "@type": "ContactPoint",

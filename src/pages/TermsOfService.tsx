@@ -1,9 +1,16 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SeoHead from '@/components/SeoHead';
 
 const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-flick-blue">
+      <SeoHead
+        title="Terms of Service | FLICK2SPLIT"
+        description="Review the terms of service for FLICK2SPLIT. Understand your rights and responsibilities when using our bill splitting application."
+        canonicalUrl="https://flick2split.com/terms-of-service"
+        keywords={['terms of service', 'user agreement', 'terms and conditions']}
+      />
       <Navbar />
       
       <section className="pt-32 pb-12 px-4 hero-gradient">

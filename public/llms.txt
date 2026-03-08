@@ -1,0 +1,27 @@
+# FLICK2SPLIT
+> Official landing page for FLICK2SPLIT, an AI-powered bill-splitting application.
+
+## About
+FLICK2SPLIT is a mobile application that uses AI-powered receipt recognition to help friends split bills fairly and effortlessly.
+
+## Docs
+- [How to Use](https://flick2split.com/how-to-use): Step-by-step guide for using FLICK2SPLIT
+- [Blog](https://flick2split.com/blog): Tips, stories, and insights about bill splitting
+
+## Blog Posts
+- [How FLICK2SPLIT Saved My Friendship](https://flick2split.com/blog/saved-my-friendship)
+- [Tips for Fair Bill Splitting](https://flick2split.com/blog/tips-for-fair-bill-splitting)
+
+## Legal
+- [Privacy Policy](https://flick2split.com/privacy-policy)
+- [Terms of Service](https://flick2split.com/terms-of-service)
+- [Cookie Policy](https://flick2split.com/cookie-policy)
+- [GDPR](https://flick2split.com/gdpr)
+
+## Contact
+- Website: https://flick2split.com
+- App Store: Available on iOS
+
+## Metadata
+- Language: en
+- Updated: 2026-03-08

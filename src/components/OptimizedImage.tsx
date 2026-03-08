@@ -7,6 +7,8 @@ interface OptimizedImageProps {
   height?: number;
   className?: string;
   loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'sync' | 'auto';
+  fetchPriority?: 'high' | 'low' | 'auto';
 }
 
 export default function OptimizedImage({
@@ -16,6 +18,8 @@ export default function OptimizedImage({
   height,
   className = '',
   loading = 'lazy',
+  decoding = 'async',
+  fetchPriority = 'auto',
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -34,6 +38,8 @@ export default function OptimizedImage({
       width={width}
       height={height}
       loading={loading}
+      decoding={decoding}
+      fetchPriority={fetchPriority}
       className={`${className} ${isLoaded ? 'loaded' : ''} image-blur-load`}
       onLoad={() => setIsLoaded(true)}
     />
